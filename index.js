@@ -39,12 +39,12 @@ const Team = mongoose.model(
 const Match = mongoose.model(
     "Match",
     new mongoose.Schema({
-       matchID: { type: String, required: true },
+       match_id: { type: String, required: true },
        team_1_icon: { type: String, required: true }, 
        team_2_icon: { type: String, required: true }, 
        tournament_name: { type: String, required: true }, 
        tournament_icon: { type: String, required: true }, 
-       match_time: { type: Date, required: true }, 
+       match_time: { type: Number, required: true }, 
     })
  );
  
