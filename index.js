@@ -87,18 +87,32 @@ app.get("/teams", async (req, res) => {
 });
 
 
-// Get match by ID
-app.get("/matches", async (req, res) => {
-    const { matchIDs } = req.query;  // Read matchIDs from query parameters
+// Get match by match_id (GET /matches/:match_id)
+app.get("/matches/:match_id", async (req, res) => {
+   const { match_id } = req.params;  // Extract match_id from the URL parameter
  
-    let matches;
-    if (matchIDs) {
-       const matchIDArray = matchIDs.split(',');  // Convert comma-separated string to an array
-       matches = await Match.find({ matchID: { $in: matchIDArray } });  // Query for matches with matchID in the array
-    } else {
-       matches = await Match.find();  // Fetch all matches if no matchIDs are provided
-    }
- 
-    res.send(matches);
+   try {
+     const match = await Match.findOne({ match_id });  // Query for a single match with the given match_id
+     if (!match) {
+       return res.status(404).send({ message: "Match not found" });  // 404: Not Found if match doesn't exist
+     }
+     res.status(200).send(match);  // 200: OK, return the match data
+   } catch (error) {
+     res.status(500).send({ message: "Error fetching match", error });  // 500: Internal Server Error
+   }
  });
  
+ // Get matches by match_ids (GET /matches)
+ app.get("/matches", async (req, res) => {
+   const { matchIDs } = req.query;  // Read matchIDs from query parameters
+ 
+   let matches;
+   if (matchIDs) {
+     const matchIDArray = matchIDs.split(",");  // Convert comma-separated string to an array
+     matches = await Match.find({ match_id: { $in: matchIDArray } });  // Changed from matchID to match_id
+   } else {
+     matches = await Match.find();  // Fetch all matches if no matchIDs are provided
+   }
+ 
+   res.send(matches);
+ });
