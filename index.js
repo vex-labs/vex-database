@@ -14,7 +14,7 @@ app.use(cors({
   
 
 // MongoDB Atlas URI
-const mongoURI = "mongodb+srv://shunabdev:YiOvLiqeszJJ7O55@vex.o4cwf.mongodb.net/?retryWrites=true&w=majority&appName=Vex";
+const mongoURI = "";
 
 // Connect to MongoDB Atlas
 mongoose
