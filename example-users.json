@@ -1,0 +1,32 @@
+[
+{
+  "account_id": "betvex-setup.testnet",
+  "username": "Setup",
+  "leaderboard_on": true,
+  "recommended_matches_on": true
+},
+{
+  "account_id": "pivortex.testnet",
+  "username": "PiVortex",
+  "leaderboard_on": true,
+  "recommended_matches_on": true
+},
+{
+  "account_id": "user-1140876404.testnet",
+  "username": "TestUser1",
+  "leaderboard_on": true,
+  "recommended_matches_on": true
+},
+{
+  "account_id": "user-6781327184.testnet",
+  "username": "TestUser2",
+  "leaderboard_on": true,
+  "recommended_matches_on": true
+},
+{
+  "account_id": "user-8489123164.testnet",
+  "username": "TestUser3",
+  "leaderboard_on": true,
+  "recommended_matches_on": true
+}
+]
