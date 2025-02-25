@@ -25,12 +25,13 @@ async function writeUser(user) {
     }
 }
 
-// Example usage
+// Example usage - public_key is optional
 const user = {
-    "account_id": "example.testnet",
+    "account_id": "next-example.testnet",
     "username": "NewUser",
     "leaderboard_on": true,
-    "recommended_matches_on": true
+    "recommended_matches_on": true,
+    "public_key": "ed25519:E8emaKf7GjdzTqg5Td9CmDd8CD2AHHaCi1mu5Lfv1dKr" // Optional field
 };
 
 writeUser(user);
